@@ -1,0 +1,101 @@
+﻿<UserControl
+    x:Class="Rotation.Controls.AngleView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Rotation.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="AView"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Line
+            HorizontalAlignment="Center"
+            VerticalAlignment="Stretch"
+            Stroke="LightGray"
+            StrokeThickness="1"
+            Y2="{Binding ElementName=circle, Path=ActualHeight}" />
+
+        <Line
+            HorizontalAlignment="Center"
+            VerticalAlignment="Stretch"
+            RenderTransformOrigin="0.5 0.5"
+            Stroke="LightGray"
+            StrokeThickness="1"
+            Y2="{Binding ElementName=circle, Path=ActualHeight}">
+            <Line.RenderTransform>
+                <RotateTransform Angle="90" />
+            </Line.RenderTransform>
+        </Line>
+        <Line
+            HorizontalAlignment="Center"
+            VerticalAlignment="Stretch"
+            RenderTransformOrigin="0.5 0.5"
+            Stroke="LightGray"
+            StrokeThickness="1"
+            Y2="{Binding ElementName=circle, Path=ActualHeight}">
+            <Line.RenderTransform>
+                <RotateTransform Angle="45" />
+            </Line.RenderTransform>
+        </Line>
+
+        <Line
+            HorizontalAlignment="Center"
+            VerticalAlignment="Stretch"
+            RenderTransformOrigin="0.5 0.5"
+            Stroke="LightGray"
+            StrokeThickness="1"
+            Y2="{Binding ElementName=circle, Path=ActualHeight}">
+            <Line.RenderTransform>
+                <RotateTransform Angle="135" />
+            </Line.RenderTransform>
+        </Line>
+
+        <Grid RenderTransformOrigin="0.5 0.5">
+
+            <Ellipse
+                x:Name="circle"
+                Width="{Binding ElementName=circle, Path=ActualHeight}"
+                VerticalAlignment="Stretch"
+                Stroke="LightGray"
+                StrokeThickness="1" />
+
+            <Line
+                HorizontalAlignment="Center"
+                VerticalAlignment="Stretch"
+                Stroke="Black"
+                StrokeThickness="1"
+                Y2="{Binding ElementName=circle, Path=ActualHeight}" />
+
+            <Line
+                HorizontalAlignment="Center"
+                VerticalAlignment="Stretch"
+                Stroke="Black"
+                StrokeThickness="1"
+                Y2="10px">
+                <Line.RenderTransform>
+                    <RotateTransform Angle="25" />
+                </Line.RenderTransform>
+            </Line>
+
+            <Line
+                HorizontalAlignment="Center"
+                VerticalAlignment="Stretch"
+                Stroke="Black"
+                StrokeThickness="1"
+                Y2="10px">
+                <Line.RenderTransform>
+                    <RotateTransform Angle="-25" />
+                </Line.RenderTransform>
+            </Line>
+
+            <Grid.RenderTransform>
+                <RotateTransform Angle="{Binding Value, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+            </Grid.RenderTransform>
+        </Grid>
+
+
+    </Grid>
+</UserControl>
